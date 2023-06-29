@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_rev- Entry point
@@ -17,7 +18,7 @@ void print_rev(char *s)
 		i++;
 		s++;
 	}
-	while (i > 0)
+	while (i >= 0)
 	{
 		_putchar(*s);
 		s--;
