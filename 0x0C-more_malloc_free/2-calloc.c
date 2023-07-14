@@ -27,11 +27,11 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	for (k = 0; k < nmemb; k++)
 	{
 		if (size == sizeof(char))
-			((char*)p)[k] = 0;
+			((char *)p)[k] = 0;
 		else if (size == sizeof(int))
-			((int*)p)[k] = 0;
+			((int *)p)[k] = 0;
 		else
-			((long*)p)[k] = 0;
+			((long *)p)[k] = 0;
 	}
 	return (p);
 }
