@@ -13,10 +13,10 @@ int recursion(int n, int i)
 	++i;
 	if ((n % i) == 0)
 		return (0);
-	else if(i > n/2)
-		return(1);
+	else if (i > n / 2)
+		return (1);
 	else
-		return(recursion(n,i));
+		return (recursion(n, i));
 }
 
 /**
@@ -32,9 +32,9 @@ int is_prime_number(int n)
 
 	i = 2;
 	if (n < 2)
-		return(0);
-	else if((n % i) == 0)
-		return(0);
+		return (0);
+	else if ((n % i) == 0)
+		return (0);
 	else
-		return(recursion(n,i));
+		return (recursion(n, i));
 }

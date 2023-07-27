@@ -12,11 +12,11 @@ int recursion(int n, int i)
 {
 	++i;
 	if (n == i * i)
-		return i;
-	else if(i > n/2)
-		return(-1);
+		return (i);
+	else if (i > n / 2)
+		return (-1);
 	else
-		return(recursion(n,i));
+		return (recursion(n, i));
 }
 
 /**
@@ -32,9 +32,9 @@ int _sqrt_recursion(int n)
 
 	i = 2;
 	if (n == 1)
-		return(1);
-	else if(n == i * i)
-		return(n);
+		return (1);
+	else if (n == i * i)
+		return (n);
 	else
-		return(recursion(n,i));
+		return (recursion(n, i));
 }

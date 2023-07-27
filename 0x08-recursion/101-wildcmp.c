@@ -1,115 +1,33 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * len- Entry point
- * Description: 'the program's description'
- * @s: Second operand;
- *
- * Return: An int
+ * str_checker - check if two strings are identical.
+ * @s1: string_1 base address.
+ * @s2: string_2 base address.
+ * @i: left index.
+ * @j: special index. (joker)
+ * Return: 1 if s is palindrome, 0 otherwise.
  */
-int len(char *s)
+int str_checker(char *s1, char *s2, int i, int j)
 {
-	if (*s == '\0')
-	{
-		return(0);
-	}
-	return(1 + len(s + 1));
+	if (s1[i] == '\0' && s2[j] == '\0')
+		return (1);
+	if (s1[i] == s2[j])
+		return (str_checker(s1, s2, i + 1, j + 1));
+	if (s1[i] == '\0' && s2[j] == '*')
+		return (str_checker(s1, s2, i, j + 1));
+	if (s2[j] == '*')
+		return (str_checker(s1, s2, i + 1, j) || str_checker(s1, s2, i, j + 1));
+	return (0);
 }
-
 /**
- * cmp- Entry point
- * Description: 'the program's description'
- * @s1: First operand
- * @s2: Second operand
+ * wildcmp - check if strings could be considered identical
+ * @s1: base address for string.
+ * @s2: base address for string.
  *
- * Return: An int
- */
-int cmp(char *s1, char *s2)
-{
-	if (*s2 == '\0')
-		return (0);
-	else if(*s1 == *s2)
-		return(1);
-	else if (*s2 == '*' && len(s1) >= len(s2))
-		return(1);
-	else
-		return cmp(s1, ++s2);
-}
-
-/**
- * helperwildcmp- Entry point
- * Description: 'the program's description'
- * @s1: First operand
- * @s2: Second operand
- *
- * Return: An int
- */
-int helperwildcmp(char *s1, char *s2)
-{
-	if (*s1 == '\0')
-	{
-		printf("+++++\n");
-		printf("%c,   %c,\n",*s1, *s2);
-		return(1);
-	}
-	else if (*s1 == '*' || *s1 == *s2)
-	{
-		printf("-------\n");	
-		printf("%c,   %c,\n",*s1, *s2);
-		return(helperwildcmp(++s1,s2));
-	}
-	else if(*s1 != *s2)
-	{
-		if (*s2 == '*' && len(s1) >= len(s2))
-		{
-			printf("*************\n");
-			printf("%c,   %c,\n",*s1, *s2);
-			return(helperwildcmp(++s1, s2));
-		}
-		else
-		{
-			char *temp;
-			temp = s2;
-			if (cmp(s1,++temp))
-			{
-				++s1;
-				if (*s1 != '\0')
-				{
-					printf("....................\n");
-					printf("%c,   %c,\n",*s1, *s2);
-					return(helperwildcmp(s1,s2));
-				}
-				else
-				{
-					printf("<<<<<<<<<<<<<<<<<<\n");
-					printf("%c,   %c,\n",*s1, *s2);
-					return(1);
-				}
-			}
-			else
-			{
-				printf("_______________________\n");
-				return(0);
-			}
-		}
-	}
-	printf(">>>>>>>>>>>>>>>>>>>>>\n");
-	return(0);
-}
-
-/**
- * wildcmp- Entry point
- * Description: 'the program's description'
- * @s1: First operand
- * @s2: Second operand
- *
- * Return: An int
+ * Return: 1 if are considered identical.
  */
 int wildcmp(char *s1, char *s2)
 {
-	if (len(s1) >= len(s2))
-		return(helperwildcmp(s1, s2));
-	else
-		return(helperwildcmp(s2, s1));
+	return (str_checker(s1, s2, 0, 0));
 }

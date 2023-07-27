@@ -9,11 +9,11 @@
  */
 int len(char *s)
 {
-        if (*s == '\0')
-        {
-                return(0);
-        }
-        return(1 + len(s + 1));
+	if (*s == '\0')
+	{
+		return (0);
+	}
+	return (1 + len(s + 1));
 }
 
 /**
@@ -29,14 +29,11 @@ int pal(int n, int i, char *s)
 {
 	if (n < i)
 		return (1);
-	else if(*(s + n) != *(s + i))
-		return(0);
-	else
-	{
-		--n;
-		++i;
-		return(pal(n,i,s));
-	}
+	else if (*(s + n) != *(s + i))
+		return (0);
+	--n;
+	++i;
+	return (pal(n, i, s));
 }
 
 /**
@@ -49,9 +46,9 @@ int pal(int n, int i, char *s)
 int is_palindrome(char *s)
 {
 	int n, i;
-	
+
 	n = len(s);
 	--n;
 	i = 0;
-	return(pal(n,i,s));
+	return (pal(n, i, s));
 }
