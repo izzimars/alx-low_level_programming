@@ -1,12 +1,11 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
- * main- Entry point
- * Description: 'the program's description'
- * @argc: First operand
- * @argv: Second argument
+ * main - prints the number of arguments passed into it.
+ * @argc: argument count
+ * @argv: arguments
  *
- * Return: Always 0 (Success)
+ * Return: 0
  */
 int main(int argc, char **argv)
 {

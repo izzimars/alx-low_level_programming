@@ -1,23 +1,16 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
- * main- Entry point
- * Description: 'the program's description'
- * @agrc: First operand
- * @argv: Second argument
+ * main - prints its name, followed by a new line.
+ * @argc: argument count
+ * @argv: arguments
  *
- * Return: Always 0 (Success)
+ * Return: 0
  */
 int main(int argc, char **argv)
 {
-	char *s;
+	(void)argc;
 
-	s = argv[0];
-	while (*s != '\0' && argc > 0)
-	{
-		_putchar(*s);
-		++s;
-	}
-	_putchar('\n');
+	printf("%s\n", argv[0]);
 	return (0);
 }
