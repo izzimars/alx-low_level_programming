@@ -1,62 +1,51 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 /**
- * main- Entry point
- * Description: 'the program's description'
- * @agrc: First operand
- * @argv: Second argument
- *
- * Return: Always 0 (Success)
+ * main - prints the min number of coins to make change
+ * for an amount of money
+ * @argc: argument count
+ * @argv: arguments
+ * Return: 0
  */
 int main(int argc, char **argv)
 {
-	int i, count;
+	int total, count;
+	unsigned int i;
+	char *p;
+	int cents[] = {25, 10, 5, 2};
 
-	count = 0;
 	if (argc != 2)
 	{
 		printf("Error\n");
-		return(1);
+		return (1);
 	}
-	else if (atoi(argv[1]) < 0)
+
+	total = strtol(argv[1], &p, 10);
+	count = 0;
+
+	if (!*p)
 	{
-		printf("0\n");
-		return(0);
+		while (total > 1)
+		{
+			for (i = 0; i < sizeof(cents[i]); i++)
+			{
+				if (total >= cents[i])
+				{
+					count += total / cents[i];
+					total = total % cents[i];
+				}
+			}
+		}
+		if (total == 1)
+			count++;
 	}
 	else
 	{
-		i = atoi(argv[1]);
-		while (i > 0)
-		{
-			if (i - 25 >= 0)
-			{
-				i -= 25;
-				count += 1;
-			}
-			else if (i - 10 >= 0)
-			{
-				i -= 10;
-				count += 1;
-			}
-			else if (i - 5 >= 0)
-			{
-				i -= 5;
-				count += 1;
-			}
-			else if (i - 2 >= 0)
-			{
-				i -= 2;
-				count += 1;
-			}
-			else
-			{
-				i -= 1;
-				count += 1;
-			}
-		}
+		printf("Error\n");
+		return (1);
 	}
+
 	printf("%d\n", count);
-	return(0);
+	return (0);
 }

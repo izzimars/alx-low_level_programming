@@ -1,25 +1,26 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 /**
- * main- Entry point
- * Description: 'the program's description'
- * @agrc: First operand
- * @argv: Second argument
+ * main - multiplies two numbers.
+ * @argc: argument count
+ * @argv: arguments
  *
- * Return: Always 0 (Success)
+ * Return: 0
  */
 int main(int argc, char **argv)
 {
-	if (argc == 3)
-	{
-		printf("%d\n",atoi(argv[1]) * atoi(argv[2]));
-		return (0);
-	}
-	else
+	int x, y;
+
+	if (argc < 3)
 	{
 		printf("Error\n");
-		return(1);
+		return (1);
 	}
+
+	x = atoi(argv[1]);
+	y = atoi(argv[2]);
+	printf("%d\n", x * y);
+
+	return (0);
 }

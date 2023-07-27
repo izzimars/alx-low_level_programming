@@ -1,38 +1,38 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 /**
- * main- Entry point
- * Description: 'the program's description'
- * @agrc: First operand
- * @argv: Second argument
+ * main - adds positive numbers.
+ * @argc: argument count
+ * @argv: arguments
  *
- * Return: Always 0 (Success)
+ * Return: 0
  */
 int main(int argc, char **argv)
 {
-	int i;
-	int tot;
+	int i, n, sum = 0;
+	char *flag;
 
-	i = 1;
-	tot = 0;
-	while (i < argc)
+	if (argc < 2)
 	{
-		if (argc == 1)
+		printf("0\n");
+		return (0);
+	}
+
+	for (i = 1; argv[i]; i++)
+	{
+		n = strtol(argv[i], &flag, 10);
+		if (*flag)
 		{
-			printf("0\n");
-			return(0);
+			printf("Error\n");
+			return (1);
 		}
-		else if (sizeof(atoi(argv[i])) >= sizeof(3))
-			tot += atoi(argv[i]);
 		else
 		{
-			printf("Error");
-			return(1);
+			sum += n;
 		}
-		i++;
 	}
-	printf("%d\n", tot);
-	return(0);
+	printf("%d\n", sum);
+
+	return (0);
 }
