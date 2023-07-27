@@ -1,37 +1,39 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
- * _realloc- Entry point
- * Description: 'the program's description'
- * @ptr: First operand
- * @old_size: Second operand
- * @new_size: Third operand
+ * _realloc - reallocates a memory block using malloc and free
  *
- * Return: Always 0 (Success)
+ * @ptr: pointer to the memory previously allocated
+ * @old_size:is the size, in bytes, of the allocated space for ptr
+ * @new_size: the new size, in bytes of the new memory block
+ *
+ * Return: pointer allocate new size memory, or NULL
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	char *p, *pt;
-	unsigned int k;
+	char *p;
+	unsigned int i, n = new_size;
+	char *oldp = ptr;
 
-	pt = (char *) ptr;
-	p = malloc(new_size);
 	if (ptr == NULL)
+	{
+		p = malloc(new_size);
 		return (p);
-	else if (new_size == old_size)
-		return (ptr);
-	else if (new_size == 0 && ptr != NULL)
+	}
+	else if (new_size == 0)
 	{
 		free(ptr);
 		return (NULL);
 	}
-	else
-	{
-		for (k = 0; k <= old_size; k++)
-		{
-			p[k] = pt[k];
-		}
-		return (p);
-	}
+	else if (new_size == old_size)
+		return (ptr);
+	p = malloc(new_size);
+	if (p == NULL)
+		return (NULL);
+	if (new_size > old_size)
+		n = old_size;
+	for (i = 0; i < n; i++)
+		p[i] = oldp[i];
+	free(ptr);
+	return (p);
 }
