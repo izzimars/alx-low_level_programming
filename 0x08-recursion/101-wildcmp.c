@@ -25,13 +25,12 @@ int _strlen_recursion(char *s)
  * Return: An int
  */
 
-char * equalizer(char *s, char *n)
+char *equalizer(char *s, char *n)
 {
-	
 	if (_strlen_recursion(s) ==  _strlen_recursion(n))
-        {
-                return (n);
-        }
+	{
+		return (n);
+	}
 	n = n + 1;
 	return (equalizer(s, n));
 }
@@ -53,10 +52,10 @@ int wildcmp(char *s1, char *s2)
 	}
 	else if (*s2 == '*')
 	{
-	        if (*s2 + 1 == '\0')
-	        {
-	               return (1);
-	        }
+		if (*s2 + 1 == '\0')
+		{
+			return (1);
+		}
 		else if (_strlen_recursion(s1) >  _strlen_recursion(s2))
 		{
 			s1 = equalizer(s2, s1);

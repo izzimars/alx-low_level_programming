@@ -33,13 +33,13 @@ int palihelper(char *s, int n, int c)
 		return (0);
 	}
 	else if (n == c)
-        {
-                return (1);
-        }
+	{
+		return (1);
+	}
 	else if (n == (c - 1))
-        {
-                return (1);
-        }
+	{
+		return (1);
+	}
 	return (palihelper((s + 1), n, (c - 2)));
 }
 
@@ -50,9 +50,12 @@ int palihelper(char *s, int n, int c)
  *
  * Return: An int
  */
+
 int is_palindrome(char *s)
 {
-	int c = _strlen_recursion(s) - 1;
-	int n = (int)(c / 2);
+	int c, n;
+
+	c = _strlen_recursion(s) - 1;
+	n = (int)(c / 2);
 	return (palihelper(s, n, c));
 }

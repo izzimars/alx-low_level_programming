@@ -20,9 +20,9 @@ int prime_helper(int n, int i)
 		return (1);
 	}
 	else if (((n % i) == 0) && (n != i))
-        {
-                return (0);
-        }
+	{
+		return (0);
+	}
 	return (prime_helper(n, i + 1));
 }
 
@@ -36,5 +36,5 @@ int prime_helper(int n, int i)
 
 int is_prime_number(int n)
 {
-        return (prime_helper(n, 2 ));
+	return (prime_helper(n, 2));
 }
