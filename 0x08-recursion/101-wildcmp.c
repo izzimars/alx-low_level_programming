@@ -18,9 +18,10 @@ int _strlen_recursion(char *s)
 }
 
 /**
- * _is_palindrome- Entry point
+ * equalizer- Entry point
  * Description: 'the program's description'
  * @s: First operand
+ * @n: Second operand
  *
  * Return: An int
  */
@@ -36,6 +37,51 @@ char *equalizer(char *s, char *n)
 }
 
 /**
+ * wildcmphelp- Entry point
+ * Description: 'the program's description'
+ * @s1: First operand
+ * @s2: Second operand
+ * @flag: Third operand
+ *
+ * Return: An int
+ */
+
+int wildcmphelp(char *s1, char *s2, int flag)
+{
+	if (*s2 == '\0')
+	{
+		return (1);
+	}
+	else if (*s2 == '*')
+	{
+		flag = 1;
+		if (*s2 + 1 == '\0')
+		{
+			return (1);
+		}
+		else if (_strlen_recursion(s1) >  _strlen_recursion(s2))
+		{
+			s1 = equalizer(s2, s1);
+			return (wildcmphelp(s1, s2, flag));
+		}
+		else if (_strlen_recursion(s2) >  _strlen_recursion(s1))
+		{
+			return (wildcmphelp(s1, s2 + 1, flag));
+		}
+
+	}
+	else if (*s2 != *s1)
+	{
+		if ((_strlen_recursion(s1) >=  _strlen_recursion(s2)) && flag)
+		{
+			return (wildcmphelp(s1 + 1, s2, flag));
+		}
+		return (0);
+	}
+	return (wildcmphelp(s1 + 1, s2 + 1, flag));
+}
+
+/**
  * wildcmp- Entry point
  * Description: 'the program's description'
  * @s1: First operand
@@ -46,35 +92,6 @@ char *equalizer(char *s, char *n)
 
 int wildcmp(char *s1, char *s2)
 {
-	if (*s2 == '\0')
-	{
-		return (1);
-	}
-	else if (*s2 == '*')
-	{
-		if (*s2 + 1 == '\0')
-		{
-			return (1);
-		}
-		else if (_strlen_recursion(s1) >  _strlen_recursion(s2))
-		{
-			s1 = equalizer(s2, s1);
-			return (wildcmp(s1, s2));
-		}
-		else if (_strlen_recursion(s2) >  _strlen_recursion(s1))
-		{
-			return (wildcmp(s1, s2 + 1));
-		}
-
-	}
-	else if (*s2 != *s1)
-	{
-		if (_strlen_recursion(s1) >  _strlen_recursion(s2))
-		{
-			return (wildcmp(s1 + 1, s2));
-		}
-		return (0);
-	}
-	return (wildcmp(s1 + 1, s2 + 1));
-
+	return (wildcmphelp(s1, s2, 0));
 }
+

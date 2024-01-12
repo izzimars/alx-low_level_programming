@@ -32,11 +32,11 @@ int palihelper(char *s, int n, int c)
 	{
 		return (0);
 	}
-	else if (n == c)
+	else if ((n % 2 == 0) && (*s == *(s + n)))
 	{
 		return (1);
 	}
-	else if (n == (c - 1))
+	else if ((n % 2 == 1) &&  (*s == *(s + n + 1)))
 	{
 		return (1);
 	}
@@ -44,7 +44,7 @@ int palihelper(char *s, int n, int c)
 }
 
 /**
- * _is_palindrome- Entry point
+ * is_palindrome- Entry point
  * Description: 'the program's description'
  * @s: First operand
  *
@@ -56,6 +56,6 @@ int is_palindrome(char *s)
 	int c, n;
 
 	c = _strlen_recursion(s) - 1;
-	n = (int)(c / 2);
+	n = (int)(_strlen_recursion(s) / 2);
 	return (palihelper(s, n, c));
 }
