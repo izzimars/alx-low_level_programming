@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * void _puts_recursion- Entry point
+ * _puts_recursion- Entry point
  * Description: 'the program's description'
  * @s: First operand
  *
