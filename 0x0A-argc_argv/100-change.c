@@ -20,6 +20,11 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 	i = atoi(argv[1]);
+	if (i < 0)
+	{
+		printf("%d\n", count);
+		exit(0);
+	}
 	while (i)
 	{
 		if (i >= 25)
