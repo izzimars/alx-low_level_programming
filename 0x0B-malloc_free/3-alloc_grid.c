@@ -11,12 +11,8 @@
  */
 int **alloc_grid(int width, int height)
 {
-	int i = 0;
-	int j = 0;
-	int m = 0;
-	int n = 0;
-	int *p;
-	int **pp;
+	int i = 0, j = 0, m = 0, n = 0, k = 0;
+	int *p, **pp;
 
 	if ((width <= 0) || (height <= 0))
 		return (NULL);
@@ -30,16 +26,20 @@ int **alloc_grid(int width, int height)
 	}
 	while (i < width)
 	{
-		while (m < height)
-		{
-			p[n] = 0;
-			++m;
-			++n;
-		}
-		m = 0;
 		pp[i] = &(p[j]);
 		i++;
 		j += height;
+	}
+	while (n < width)
+	{
+		while (m < height)
+		{
+			p[k] = 0;
+			k++;
+			m++;
+		}
+		++n;
+		m = 0;
 	}
 	return (pp);
 }
