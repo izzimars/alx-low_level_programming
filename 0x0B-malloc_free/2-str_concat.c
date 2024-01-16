@@ -43,6 +43,11 @@ char *str_concat(char *s1, char *s2)
 	m = 0;
 	n = 0;
 	p = (char *) malloc(sizeof(char) * (k + 1));
+	if (p == NULL)
+	{
+		free(p);
+		return (NULL);
+	}
 	while (l < k)
 	{
 		if ((i != 0) && (*(s1 + n) != '\0'))
