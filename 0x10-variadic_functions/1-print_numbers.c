@@ -5,7 +5,7 @@
 /**
  * print_numbers- Entry point
  * Description: 'the program's description'
- * @seperator: First operand
+ * @separator: First operand
  * @n : Second operator
  *
  * Return: A pointer of type char
@@ -16,7 +16,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	unsigned int i;
 
 	if (n == 0)
-		return ;
+		return;
 	va_start(ap, n);
 	for (i = 0; i < n; i++)
 	{
