@@ -1,5 +1,6 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
+#include <stdio.h>
 
 /**
  * print_numbers- Entry point
@@ -12,13 +13,19 @@
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	va_list ap;
-	int i, sum = 0;
+	unsigned int i;
 
 	if (n == 0)
-		return (0);
-	va_start (ap, count);
+		return ;
+	va_start(ap, n);
 	for (i = 0; i < n; i++)
-		sum += va_arg (ap, int);
+	{
+		printf("%d", va_arg(ap, int));
+		if (separator == NULL)
+			continue;
+		if ((n - i) > 1)
+			printf("%s", separator);
+	}
+	printf("\n");
 	va_end(ap);
-	return (sum);
 }
