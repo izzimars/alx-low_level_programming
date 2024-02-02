@@ -1,4 +1,4 @@
-#include "lists.h"1-list_len.c
+#include "lists.h"
 
 /**
  * list_len- Entry point
