@@ -4,7 +4,7 @@
  * add_nodeint- Entry point
  * Description: 'the program's description'
  * @head: First operand
- * @str: Second operand
+ * @n: Second operand
  *
  * Return: An int
  */
