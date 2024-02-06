@@ -1,28 +1,21 @@
 #include "lists.h"
 
 /**
- * add_node- Entry point
+ * add_nodeint- Entry point
  * Description: 'the program's description'
  * @head: First operand
  * @str: Second operand
  *
  * Return: An int
  */
-list_t *add_node(list_t **head, const char *str)
+listint_t *add_nodeint(listint_t **head, const int n)
 {
-	list_t *lk;
-	size_t nchar;
+	listint_t *lk;
 
-	lk = (list_t *) malloc(sizeof(list_t));
+	lk = (listint_t *) malloc(sizeof(listint_t));
 	if (lk == NULL)
 		return (NULL);
-
-	lk->str = strdup(str);
-
-	for (nchar = 0; str[nchar]; nchar++)
-		;
-
-	lk->len = nchar;
+	lk->n = n;
 	lk->next = *head;
 	*head = lk;
 
