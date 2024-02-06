@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * listnt_len- Entry point
+ * listint_len- Entry point
  * Description: 'the program's description'
  * @h: First operand
  *
