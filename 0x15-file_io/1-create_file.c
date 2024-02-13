@@ -28,7 +28,7 @@ int create_file(const char *filename, char *text_content)
 	int source_fd;
 	int i;
 
-	if (filename == NULL)
+	if (!filename)
 		return (-1);
 	source_fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 600);
 	if (source_fd == -1)
