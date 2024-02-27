@@ -3,8 +3,7 @@
 #include <stdlib.h>
 
 ssize_t custom_getline(char **lineptr, size_t *n, int stream) {
-	size_t bufsize = *n;
-	size_t pos = 0;
+	size_t bufsize = *n, size_t pos = 0;
 	int c;
 	ssize_t bytes_read;
 
@@ -18,21 +17,15 @@ ssize_t custom_getline(char **lineptr, size_t *n, int stream) {
 		if (*lineptr == NULL)
 			return -1;
 	}
-	printf("a2===========\n");
-	printf("a2===========1\n");
 	while (1)
 	{
 		bytes_read = read(stream, &c, 1);
 		if (bytes_read == -1)
 			return -1;
 		if (c == EOF)
-		{
-			printf("aaaaaaaaaaar");
 			break;
-		}
 		else if (bytes_read == 0)
 		{
-			printf("grrrrr");
 			if (pos == 0)
 				return 0;
 			else
@@ -40,14 +33,10 @@ ssize_t custom_getline(char **lineptr, size_t *n, int stream) {
 		}
 		else if (c == '\n' || c == '\r')
 		{
-			printf("aaaaaaaaaaar");
 			(*lineptr)[pos] = '\0';
 			return pos;
 		}
 		(*lineptr)[pos++] = c;
-		printf("%li", pos);
-		printf("===========%c==========", c);
-		printf("%li=======", bytes_read);
 		if (pos >= bufsize - 1)
 		{
 			bufsize *= 2;
@@ -56,9 +45,7 @@ ssize_t custom_getline(char **lineptr, size_t *n, int stream) {
 				return -1;
 			*lineptr = temp;
 		}
-		printf("%ld\n", bytes_read);
 	}
-	printf("I am outside");
 	(*lineptr)[pos] = '\0';
 	*n = bufsize;
 	return pos;
