@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * main - Entry point
+ * print_alphabet_x10 - Entry point
  * Description: 'the program's description'
  * Return: Always 0 (Success)
  */
-int main(void)
+void print_alphabet_x10(void)
 {
-	int i,j;
-	
+	int i, j;
+
 	j = 1;
 	while (j <= 10)
 	{
@@ -21,5 +21,4 @@ int main(void)
 		_putchar('\n');
 		++j;
 	}
-	return(0);
 }
