@@ -2,15 +2,14 @@
 #include <stdio.h>
 
 /**
- * _islower- Entry point
+ * jack_bauer- Entry point
  * Description: 'the program's description'
- * @c: First operand
  *
  * Return: Always 0 (Success)
  */
 void jack_bauer(void)
 {
-	int i,j,k,l;
+	int i, j, k, l;
 
 	i = 0;
 	j = 0;
