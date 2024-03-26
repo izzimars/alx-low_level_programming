@@ -7,51 +7,29 @@
  */
 int main(void)
 {
-	int n, mm, m, mmm, c, b, bb;
+	int n = 0, m = 0;
 
-	c = 48;
-	b = 48;
-	n = 48;
-	b = 48;
-	bb = 48;
-	bb = bb;
-	mmm = 49;
-	mmm =mmm;
-	m = mmm;
-	mm = mmm;
-	mm =mm;
-	while (m < 57)
+	while (m < 99)
 	{
-		putchar(n);
-		putchar(c);
-		putchar(32);
-		putchar(b);
-		putchar(m);
-		putchar(44);
-		++m;
-		if (m == 57 && b < 57)
+		if (n == 99)
 		{
-			++b;
-			m = 0;
-		}
-	}
-		/*
-		else if (m == 57 && b == 57 && c < 57)
-		{
-			++c;
 			++m;
-			m = mm;
-			b = bb;
+			n = m + 1;
 		}
-		else if (m == 57 && b == 57 && c == 57 && n < 57)
+		putchar(48 + (m / 10));
+		putchar(48 + (m % 10));
+		putchar(' ');
+		putchar(48 + (n / 10));
+		putchar(48 + (n % 10));
+		if (m != 98 && n != 99)
 		{
-			++n;
-			++b;
-			c = 0;
-			m = mmm;
-			mm = mmm;
+			putchar(',');
+			putchar(' ');
 		}
-		}*/
+		else
+			break;
+		++n;
+	}
 	putchar('\n');
 	return (0);
 }

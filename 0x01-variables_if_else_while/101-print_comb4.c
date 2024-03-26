@@ -39,7 +39,6 @@ int main(void)
 		ntc++;
 		n = nc;
 		nt = ntc;
-		
 	}
 	putchar('\n');
 	return (0);
