@@ -7,11 +7,11 @@
  */
 int main(void)
 {
-	int n = 0, m = 0;
+	int n = 1, m = 0;
 
 	while (m < 99)
 	{
-		if (n == 99)
+		if (n == 100)
 		{
 			++m;
 			n = m + 1;
@@ -21,13 +21,10 @@ int main(void)
 		putchar(' ');
 		putchar(48 + (n / 10));
 		putchar(48 + (n % 10));
-		if (m != 98 && n != 99)
-		{
-			putchar(',');
-			putchar(' ');
-		}
-		else
+		if (m == 98 && n == 99)
 			break;
+		putchar(',');
+		putchar(' ');
 		++n;
 	}
 	putchar('\n');
